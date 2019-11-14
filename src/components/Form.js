@@ -41,7 +41,8 @@ export default function BasicTextFields() {
 
   const [state, setState] = React.useState({
     options: '',
-    type: '',
+    type1: '',
+    type2: '',
   });
 
   const handleChange = name => event => {
@@ -61,9 +62,9 @@ export default function BasicTextFields() {
         <h1 className="meeting-event">Meeting/Event Details</h1>
           <div className="meeting-event-options">
 
-            {/* title TextField */}
+            {/* Title TextField */}
             <TextField
-              id="outlined-helperText"
+              id="outlined-helperText-1"
               label="Title"
               className={classes.textField}
               helperText="Keep Title Short"
@@ -98,7 +99,7 @@ export default function BasicTextFields() {
               value={state.type}
               onChange={handleChange('type')}
               inputProps={{
-                name: 'type',
+                name: 'type1',
                 id: 'typeof-meeting-event-native-helper',
               }}
               >
@@ -148,6 +149,42 @@ export default function BasicTextFields() {
               </div>
 
               <h1 className="contact-info">Requester Contact Information</h1>
+              <div className="requester-contact-info">
+                <TextField
+                  id="outlined-helperText-2"
+                  label="Name"
+                  className={classes.textField}
+                  margin="normal"
+                  variant="outlined"
+                />
+                <TextField
+                  id="outlined-helperText-3"
+                  label="UIC Email"
+                  className={classes.textField}
+                  margin="normal"
+                  variant="outlined"
+                />
+                <TextField
+                  id="outlined-helperText-4"
+                  label="Phone Number"
+                  className={classes.textField}
+                  margin="normal"
+                  variant="outlined"
+                />
+                <NativeSelect
+                  value={state.type}
+                  onChange={handleChange('type')}
+                  inputProps={{
+                    name: 'type2',
+                    id: 'typeof-requestor-native-helper',
+                  }}
+                  >
+                  <option value="" />
+                  <option value={5}>Faculty</option>
+                  <option value={10}>Staff</option>
+                  <option value={15}>Student</option>
+                  </NativeSelect>
+              </div>
         </form>
 
   );
