@@ -4,7 +4,10 @@
 
 .App-logo {
   height: 40vmin;
+  color: red;
 }
+
+/* ----------- Homepage ----------- */
 
 .App-header {
   background-color: #282c34;
@@ -12,11 +15,37 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+  justify-content: flex-start;
+  padding-top: 5%;
+  font-size: calc(35px + 4vmin);
   color: white;
 }
 
-.App-link {
-  color: #09d3ac;
+.UIC-Header {
+  padding: 5%
+}
+
+
+/* login button size */
+.MuiButton-containedSizeLarge{
+  font-size: 1.1rem !important;
+}
+
+/* ----------- Form Page ----------- */
+
+.meeting-event {
+  padding: 5%;
+}
+
+#outlined-helperText {
+  width: 75%;
+}
+
+.text-area {
+  margin-top: 10%;
+  width: 75%
+}
+
+.contact-info {
+  padding: 5%;
 }
