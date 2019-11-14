@@ -1,5 +1,15 @@
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
+## Dependencies
+
+There are a few dependencies that are needed to run this app.
+
+
+### `npm install @material-ui/core`
+### `npm install @material-ui/icons`
+### `npm install typeface-roboto --save`
+### `npm i @material-ui/pickers`
+
 ## Available Scripts
 
 In the project directory, you can run:
