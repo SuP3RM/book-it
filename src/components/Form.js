@@ -9,9 +9,13 @@ import NativeSelect from '@material-ui/core/NativeSelect';
 import FormHelperText from '@material-ui/core/FormHelperText';
 import FormControl from '@material-ui/core/FormControl';
 
-// import FormControlLabel from '@material-ui/core/FormControlLabel';
-// import Checkbox from '@material-ui/core/Checkbox';
+import Radio from '@material-ui/core/Radio';
+import RadioGroup from '@material-ui/core/RadioGroup';
+import FormControlLabel from '@material-ui/core/FormControlLabel';
+import FormLabel from '@material-ui/core/FormLabel';
 import TextareaAutosize from '@material-ui/core/TextareaAutosize';
+
+
 
 const useStyles = makeStyles(theme => ({
   container: {
@@ -33,6 +37,7 @@ const useStyles = makeStyles(theme => ({
 
 export default function BasicTextFields() {
   const classes = useStyles();
+  const [value, setValue] = React.useState('none');
 
   const [state, setState] = React.useState({
     options: '',
@@ -46,11 +51,16 @@ export default function BasicTextFields() {
     });
   };
 
+  const handleRadioChange = event => {
+    setValue(event.target.value);
+  };
+
   return (
 
       <form className={classes.container} noValidate autoComplete="off">
         <h1 className="meeting-event">Meeting/Event Details</h1>
           <div className="meeting-event-options">
+
             {/* title TextField */}
             <TextField
               id="outlined-helperText"
@@ -64,6 +74,7 @@ export default function BasicTextFields() {
             {/* Date & time Picker, located in Schedule.js */}
             <Schedule/>
 
+            {/* Estimated Attendance */}
             <FormControl variant="outlined" className={classes.formControl}>
             <NativeSelect
               value={state.attendees}
@@ -101,11 +112,43 @@ export default function BasicTextFields() {
             <FormHelperText>Type of Meeting/Event</FormHelperText>
             </FormControl>
 
-            <TextareaAutosize className="text-area" rows={15} placeholder="For additional details please mention here..." />
-          </div>
+            {/* Require food, drinks, both, or none */}
+            <FormControl component="fieldset" className={classes.formControl}>
+              <FormLabel component="legend">Require Food and/or Beverages? If any, please add in additional details what to order and account to charge if applicable.</FormLabel>
+              <RadioGroup aria-label="foodOptions" name="foodOptions" value={value} onChange={handleRadioChange} row>
+                <FormControlLabel
+                  value="none"
+                  control={<Radio color="primary" />}
+                  label="None"
+                  labelPlacement="top"
+                />
+                <FormControlLabel
+                  value="food"
+                  control={<Radio color="primary" />}
+                  label="Food"
+                  labelPlacement="top"
+                />
+                <FormControlLabel
+                  value="beverages"
+                  control={<Radio color="primary" />}
+                  label="Beverages"
+                  labelPlacement="top"
+                />
+                <FormControlLabel
+                  value="both"
+                  control={<Radio color="primary" />}
+                  label="Both"
+                  labelPlacement="top"
+                />
+              </RadioGroup>
+              </FormControl>
 
-          <h1 className="contact-info">Requester Contact Information</h1>
-      </form>
+              {/* Text area for additional details */}
+              <TextareaAutosize className="text-area" rows={15} placeholder="For additional details please mention here..." />
+              </div>
+
+              <h1 className="contact-info">Requester Contact Information</h1>
+        </form>
 
   );
 }
