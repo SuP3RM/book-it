@@ -8,7 +8,6 @@
 }
 
 /* ----------- Homepage ----------- */
-
 .App-header {
   background-color: #282c34;
   min-height: 100vh;
@@ -25,14 +24,12 @@
   padding: 5%
 }
 
-
 /* login button size */
-.MuiButton-containedSizeLarge{
+.MuiButton-containedSizeLarge {
   font-size: 1.1rem !important;
 }
 
 /* ----------- Form Page ----------- */
-
 .meeting-event {
   padding: 5%;
 }
