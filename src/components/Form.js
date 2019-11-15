@@ -15,6 +15,8 @@ import FormControlLabel from '@material-ui/core/FormControlLabel';
 import FormLabel from '@material-ui/core/FormLabel';
 import TextareaAutosize from '@material-ui/core/TextareaAutosize';
 
+import Button from '@material-ui/core/Button';
+import SendIcon from '@material-ui/icons/Send';
 
 
 const useStyles = makeStyles(theme => ({
@@ -23,15 +25,19 @@ const useStyles = makeStyles(theme => ({
     flexWrap: 'wrap',
   },
   textField: {
-    marginLeft: theme.spacing(1),
-    marginRight: theme.spacing(1),
+    marginLeft: theme.spacing(2),
+    marginRight: theme.spacing(2),
   },
   formControl: {
-    margin: theme.spacing(1),
-    minWidth: 120,
+    margin: theme.spacing(2),
+    minWidth: 140,
   },
   selectEmpty: {
     marginTop: theme.spacing(2),
+  },
+  button: {
+    margin: theme.spacing(2),
+    fontSize: 29,
   },
 }));
 
@@ -96,8 +102,8 @@ export default function BasicTextFields() {
 
             {/* Type of Meeting/event options */}
             <NativeSelect
-              value={state.type}
-              onChange={handleChange('type')}
+              value={state.type1}
+              onChange={handleChange('type1')}
               inputProps={{
                 name: 'type1',
                 id: 'typeof-meeting-event-native-helper',
@@ -149,6 +155,7 @@ export default function BasicTextFields() {
               </div>
 
               <h1 className="contact-info">Requester Contact Information</h1>
+                {/* Fields of Contact Info of Requester */}
               <div className="requester-contact-info">
                 <TextField
                   id="outlined-helperText-2"
@@ -171,19 +178,34 @@ export default function BasicTextFields() {
                   margin="normal"
                   variant="outlined"
                 />
-                <NativeSelect
-                  value={state.type}
-                  onChange={handleChange('type')}
-                  inputProps={{
-                    name: 'type2',
-                    id: 'typeof-requestor-native-helper',
-                  }}
+                <FormControl component="fieldset" className={classes.formControl}>
+                  <NativeSelect
+                    value={state.type2}
+                    onChange={handleChange('type2')}
+                    inputProps={{
+                      name: 'type2',
+                      id: 'typeof-requestor-native-helper',
+                    }}
+                    >
+                    <option value="" />
+                    <option value={5}>Faculty</option>
+                    <option value={10}>Staff</option>
+                    <option value={15}>Student</option>
+                    </NativeSelect>
+                  </FormControl>
+
+                  {/* This Button uses a Font Icon, see the installation instructions in the Icon component docs. */}
+                  <Button
+                    variant="contained"
+                    method="POST"
+                    type="submit"
+                    color="primary"
+                    className={classes.button}
+                    endIcon={<SendIcon/>}
                   >
-                  <option value="" />
-                  <option value={5}>Faculty</option>
-                  <option value={10}>Staff</option>
-                  <option value={15}>Student</option>
-                  </NativeSelect>
+                    Book It
+                  </Button>
+
               </div>
         </form>
 
