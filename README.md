@@ -12,8 +12,6 @@ There are a few dependencies that are needed to run this app.
 
 ### `npm i @material-ui/pickers`
 
-### `npm i @material-ui/pickers`
-
 ### `npm install @material-ui/styles`
 
 ### `npm i @date-io/date-fns`
